@@ -6,17 +6,21 @@
 
 Production: https://sobarkotha-photocard.vercel.app
 
-## লোকালি চালান
+## ব্যবহার ও লোকাল ডেভেলপমেন্ট
+
+ছবি আপলোড করুন, চাইলে নিজস্ব লোগো দিন, তারিখ/শিরোনাম/ফুটার সম্পাদনা করুন, তারপর **PNG ডাউনলোড করুন** চাপুন।
 
 ```bash
 npm install
 npm run dev
 ```
 
-প্রোডাকশন bundle যাচাই করতে `npm run build` চালান। React/Vite app-এর source `src/`-এ; Vercel direct deployment-এর self-contained HTML `vercel-static.html`-এ।
+Production build পরীক্ষা করতে `npm run build` চালান। React/Vite source `src/`-এ; `vercel-static.html` standalone deployment fallback/reference হিসেবে রাখা আছে।
 
-## Vercel
+## GitHub ও Vercel
 
-Vercel project `sobarkotha-photocard` তৈরি করা হয়েছে এবং production URL-এ deploy আছে। Production URL-টি public; Vercel Authentication কেবল preview deployments-এ প্রযোজ্য। GitHub source repo private: https://github.com/islamsaimun9298-tech/sobarkotha-photocard
-
-Vercel-এর auto-deploy Git link platform থেকে verify করা যায়নি; তাই বর্তমান production version static HTML হিসেবে সরাসরি publish হয়েছে। ভবিষ্যতে Git push থেকে auto-deploy করতে Vercel project-এর **Settings → Git** থেকে private repo-টি যুক্ত করুন। তারপর repo-র `vercel-static.html`-কে `index.html` হিসেবে publish বা Vite app build (`npm run build`, output `dist`) ব্যবহার করতে পারবেন। Vercel CLI-তে `vercel --prod`-ও ব্যবহার করা যায়।
+- Public source: https://github.com/islamsaimun9298-tech/sobarkotha-photocard
+- Vercel project: `sobarkotha-photocard`
+- GitHub `main` branch Vercel-এ যুক্ত; `main`-এ push করলে স্বয়ংক্রিয়ভাবে build ও deploy হয়।
+- Production URL public; preview deployment-গুলোতে Vercel sign-in protection থাকে।
+- Vercel build command: `npm run build`; output: `dist/`।
