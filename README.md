@@ -1,30 +1,22 @@
 # সবার কথা ফটোকার্ড স্টুডিও
 
-বাংলা সংবাদ ফটোকার্ড তৈরি ও PNG ডাউনলোডের জন্য একটি static React/Vite app। ৪:৫ অনুপাতের ১০৮০×১৩৫০ পিক্সেল কার্ড তৈরি হয়। ছবির ফাইল browser-এর বাইরে পাঠানো হয় না।
+বাংলা সংবাদ ফটোকার্ড তৈরির responsive browser app। ৪:৫ অনুপাতের ১০৮০×১৩৫০ PNG তৈরি হয়। ছবি, শিরোনাম, তারিখ, লোগো ও ফুটার সম্পাদনা করা যায়; ছবি ব্রাউজারের বাইরে পাঠানো হয় না।
 
-## ব্যবহার
+## লাইভ
+
+Production: https://sobarkotha-photocard.vercel.app
+
+## লোকালি চালান
 
 ```bash
 npm install
 npm run dev
 ```
 
-ছবি আপলোড করুন, চাইলে নিজের লোগো দিন, তারিখ/শিরোনাম/ফুটারের লেখা বদলান, তারপর **PNG ডাউনলোড করুন** চাপুন। ছবি-ক্রপের slider উপরের ছবির উল্লম্ব অবস্থান সামলায়।
+প্রোডাকশন bundle যাচাই করতে `npm run build` চালান। React/Vite app-এর source `src/`-এ; Vercel direct deployment-এর self-contained HTML `vercel-static.html`-এ।
 
-## Vercel deploy
+## Vercel
 
-প্রজেক্টটি Vercel-এ একটি নতুন Vite/static project হিসেবে import করুন, অথবা Vercel CLI ব্যবহার করুন:
+Vercel project `sobarkotha-photocard` তৈরি করা হয়েছে এবং production URL-এ deploy আছে। Production URL-টি public; Vercel Authentication কেবল preview deployments-এ প্রযোজ্য। GitHub source repo private: https://github.com/islamsaimun9298-tech/sobarkotha-photocard
 
-```bash
-npm install -g vercel
-vercel
-vercel --prod
-```
-
-`vercel.json`-এ build command (`npm run build`) ও output directory (`dist`) সেট করা আছে। কোনো environment variable বা backend service প্রয়োজন নেই।
-
-## Build check
-
-```bash
-npm run build
-```
+Vercel-এর auto-deploy Git link platform থেকে verify করা যায়নি; তাই বর্তমান production version static HTML হিসেবে সরাসরি publish হয়েছে। ভবিষ্যতে Git push থেকে auto-deploy করতে Vercel project-এর **Settings → Git** থেকে private repo-টি যুক্ত করুন। তারপর repo-র `vercel-static.html`-কে `index.html` হিসেবে publish বা Vite app build (`npm run build`, output `dist`) ব্যবহার করতে পারবেন। Vercel CLI-তে `vercel --prod`-ও ব্যবহার করা যায়।
